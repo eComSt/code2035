@@ -1,4 +1,6 @@
 from pprint import pprint
+from typing import Iterator
+
 good_of_eldorado = [
     {
         "name":"3310",
@@ -41,13 +43,15 @@ good_of_eldorado = [
         "price":70_000
     },
     {
-        "name":"Siemens",
-        "brand":"A35",
+        "name":"A35",
+        "brand":"Siemens",
     }
 ]
-def item_price(item):
-    return item.get("price") if "price" in item.keys() else 0
-test_list = [2,4,3,5,7,4,1,6,8,0,3,3,2]
 
-x = sorted(good_of_eldorado, key = item_price)
+test_list = [2,4,3,5,7,4,1,6,8,0,3,3,2]
+x = sorted(good_of_eldorado, key = lambda item:item.get("price") if "price" in item.keys() else 0)
 pprint(x)
+
+apple_list = filter(lambda item:item.get("price")>500_000 if "price" in item.keys() else False,good_of_eldorado)
+print(isinstance(apple_list, Iterator))
+pprint(list(apple_list))
