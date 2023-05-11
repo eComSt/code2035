@@ -55,3 +55,13 @@ pprint(x)
 apple_list = filter(lambda item:item.get("price")>500_000 if "price" in item.keys() else False,good_of_eldorado)
 print(isinstance(apple_list, Iterator))
 pprint(list(apple_list))
+
+test_list_string = map(lambda x:x*x, test_list)
+pprint(list(test_list_string))
+
+names_list = ["Илья","Игорь","Семен","Владислав"]
+surnames_list = ["Коробкин", "Петардов","Зелепупкин","Петренко"]
+
+new_list = [f"{names_list[i]} {surnames_list[i]}" for i in range(len(names_list))]
+new_list2 = map(lambda name,surname:f"{name} {surname}",names_list,surnames_list)
+print(list(new_list2))
