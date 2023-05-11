@@ -61,7 +61,27 @@ pprint(list(test_list_string))
 
 names_list = ["Илья","Игорь","Семен","Владислав"]
 surnames_list = ["Коробкин", "Петардов","Зелепупкин","Петренко"]
+patronymic_list = ["Ильbx","Игорь","Семен","Владислав"]
 
 new_list = [f"{names_list[i]} {surnames_list[i]}" for i in range(len(names_list))]
 new_list2 = map(lambda name,surname:f"{name} {surname}",names_list,surnames_list)
 print(list(new_list2))
+
+for num,i in enumerate(good_of_eldorado):
+    print(num+1,i["name"],i["brand"],i["price"] if "price" in i.keys() else 0)
+
+print("__________")
+
+num = 0
+for i in good_of_eldorado:
+    print(num+1,i["name"],i["brand"],i["price"] if "price" in i.keys() else 0)
+    num = num+1 
+
+print("__________")
+for i in range(len(good_of_eldorado)):
+    print(i+1,good_of_eldorado[i]["name"],good_of_eldorado[i]["brand"],good_of_eldorado[i]["price"] if "price" in good_of_eldorado[i].keys() else 0)
+
+
+x = zip(names_list,surnames_list,test_list,)
+
+print(list(x))
