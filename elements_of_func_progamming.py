@@ -39,9 +39,15 @@ good_of_eldorado = [
         "name":"Honor 70",
         "brand":"Huawei",
         "price":70_000
+    },
+    {
+        "name":"Siemens",
+        "brand":"A35",
     }
 ]
+def item_price(item):
+    return item.get("price") if "price" in item.keys() else 0
 test_list = [2,4,3,5,7,4,1,6,8,0,3,3,2]
-pprint(good_of_eldorado)
-x = sorted(good_of_eldorado)
+
+x = sorted(good_of_eldorado, key = item_price)
 pprint(x)
