@@ -6,3 +6,6 @@ print(__name__)
 x = ["asdfsa","sdf",'dfghdfgh']
 x = list(map(str.capitalize,x))
 print(x)
+
+y = ["asdfsa","sdf",'dfghdfgh']
+print(list(map(str.capitalize,y)))
