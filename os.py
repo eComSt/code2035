@@ -14,3 +14,12 @@ def get_all_files(path):
                 print(f" -{new}")
     except:pass
 get_all_files(parent_path)
+
+
+def recurs(count):
+    print(count)
+    if count == 5:return
+    recurs(count + 1)
+    print(count)
+
+recurs(0)
