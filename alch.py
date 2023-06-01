@@ -5,26 +5,26 @@ window = Tk()
 window.geometry("600x600")
 
 class nuck:
-    image = PhotoImage(file = r"C:\Users\Serj\Downloads\elements\neg.gif").subsample(4,4)
-   def add(self,other):
+    image = PhotoImage(file = r"/Users/pattycha/code2035/elements/neg.gif").subsample(4,4)
+    def __add__(self,other):
         if isinstance(other,fig):
             return nill
         
 class fig:
-    image = PhotoImage(file = r"C:\Users\Serj\Downloads\elements\nuck.gif").subsample(4,4)
-    def add(self,other):
+    image = PhotoImage(file = r"/Users/pattycha/code2035/elements/nuck.gif").subsample(4,4)
+    def __add__(self,other):
         if isinstance(other,nuck):
             return nill
 
 class nill:
-    image = PhotoImage(file = r"C:\Users\Serj\Downloads\elements\nillnicknate.gif").subsample(4,4)
-    def add(self,other):
+    image = PhotoImage(file = r"/Users/pattycha/code2035/elements/nillnicknate.gif").subsample(4,4)
+    def __add__(self,other):
         if isinstance(other,nuck):
             return nill
 canvas = Canvas(window, width = 600, height = 600)
 canvas.pack()
 
-elements = [nuck(), fig(), nill()]
+elements = [nuck(), fig()]
 for elem in elements:
     canvas.create_image(randint(50,550),randint(50,550),image = elem.image)
 
