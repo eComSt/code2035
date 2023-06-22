@@ -13,3 +13,18 @@ h2 {
     font-size: 32pt;
     font-family: 'Times New Roman', Times, serif;
 }
+
+.paragraph-2 {
+    border: 10px solid yellow;
+    border-radius: 5px;
+    font-size: 24pt;
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+    padding-left: 20px;
+}
+
+.paragraph-3 {
+    font-weight: bold;
+    font-size: 22px;
+    font-family: Courier New;
+}
