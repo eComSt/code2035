@@ -1,0 +1,15 @@
+h1 {
+    color: red;
+    background: gray;
+}
+h2 {
+    color: green;
+    background: yellow;
+}
+
+.paragraph-1 {
+    color: blue;
+    background-color: aqua;
+    font-size: 32pt;
+    font-family: 'Times New Roman', Times, serif;
+}
