@@ -10,4 +10,4 @@ def is_palindrome2(s):
     return True
 
 
-print( is_palindrome2("helloolleho"))
+print( is_palindrome2("helloolleh"))
