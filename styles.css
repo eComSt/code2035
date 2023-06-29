@@ -28,3 +28,11 @@ h2 {
     font-size: 22px;
     font-family: Courier New;
 }
+
+.paragraph-4 {
+    font-style: italic;
+    font-size: 24px;
+    text-align: center;
+    text-shadow:  5px 5px green; 
+    font-family: Courier New;
+}
