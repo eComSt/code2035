@@ -1,7 +1,7 @@
 pip install django
 django-admin startproject advertisements
 python3 manage.py startapp app_advertisements
-python manage.py runserver 
+python3 manage.py runserver 
 python manage.py migrate
 
 https://sqlitebrowser.org/dl/
