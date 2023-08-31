@@ -21,8 +21,9 @@
       <span style="font-weight: bold;">Разместить объявление</span>
     </a>
   </li>
+  {% if not user.is_authenticated %}
   <li class="nav-item">
-    <a class="nav-link" href="register.html">
+    <a class="nav-link" href="{% url 'register' %}">
       <span style="font-weight: bold;">Регистрация</span>
     </a>
   </li>
@@ -31,6 +32,7 @@
       <span style="font-weight: bold;">Войти</span>
     </a>
   </li>
+  {% else %}
   <li class="nav-item">
     <a class="nav-link" href="{% url 'profile' %}">
       <span style="font-weight: bold;">Профиль</span>
@@ -41,7 +43,9 @@
       <span style="font-weight: bold;">Выйти</span>
     </a>
   </li>
+  {% endif %}
 </ul>
+
 
 <div id="carouselExampleControls" class="carousel slide bg-primary" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -85,9 +89,9 @@
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Еще что-нибудь</a>
       </li>
     </ul>
-    <form class="row g-3">
+    <form class="row g-3" method="get">
       <div class="col-auto w-50">
-        <input type="text" class="form-control">
+        <input name="query" value="{% if title %}{{ title }}{% endif %}" type="text" class="form-control">
       </div>
       <div class="col-auto">
         <button type="submit" class="btn btn-success mb-3">Найти</button>
@@ -99,7 +103,7 @@
     <div class="card mb-2" style="max-width: 1200px; margin-top: 20px;">
       <div class="row g-0">
         <div class="col-md-4">
-          <a href="advertisement.html" class="nav-link">
+          <a href="{{ adv.get_absolute_url }}" class="nav-link">
             <img src="{% if adv.image %} {{ adv.image.url }} {% else %} {% static 'img/adv.png' %} {% endif %}"
                  class="img-fluid rounded-start" alt="Card title">
           </a>
@@ -107,9 +111,9 @@
         <div class="col-md-8">
           <div class="card-body">
             <h5 class="card-title">
-              <a href="advertisement.html" class="nav-link"><strong>{{ adv.title }}</strong></a>
+              <a href="{{ adv.get_absolute_url }}" class="nav-link"><strong>{{ adv.title }}</strong></a>
             </h5>
-            <a href="advertisement.html" class="nav-link">
+            <a href="{{ adv.get_absolute_url }}" class="nav-link">
               <p class="card-text">
                 {{ adv.description }}
               </p>
@@ -121,36 +125,40 @@
         </div>
       </div>
     </div>
-    {% endfor %}
-<footer style="padding: 100px;" class="bg-primary">
-  <nav class="navbar navbar-expand-sm navbar-dark">
-    <a class="navbar-brand" href="#">Добавьте</a>
-    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-            aria-label="Toggle navigation"></button>
-    <div class="collapse navbar-collapse" id="collapsibleNavId">
-      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" href="#" aria-current="page">сюда<span
-                  class="visually-hidden">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">что</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true"
-             aria-expanded="false">хотите</a>
-          <div class="dropdown-menu" aria-labelledby="dropdownId">
-            <a class="dropdown-item" href="#">например</a>
-            <a class="dropdown-item" href="#">ссылки на социальные сети</a>
-          </div>
-        </li>
-      </ul>
-      <form class="d-flex my-2 my-lg-0">
-        <input class="form-control me-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-</footer>
-{% endblock %}
+  </div>
+  {% endfor %}
+</div>
+
+    <footer style="padding: 100px;" class="bg-primary">
+      <nav class="navbar navbar-expand-sm navbar-dark">
+        <a class="navbar-brand" href="#">Добавьте</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation"></button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" aria-current="page">сюда<span
+                      class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">что</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                 aria-haspopup="true"
+                 aria-expanded="false">хотите</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="#">например</a>
+                <a class="dropdown-item" href="#">ссылки на социальные сети</a>
+              </div>
+            </li>
+          </ul>
+          <form class="d-flex my-2 my-lg-0">
+            <input class="form-control me-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </footer>
+    {% endblock %}
